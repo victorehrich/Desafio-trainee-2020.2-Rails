@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
   # GET /authors/new
   def new
     @author = Author.new
+    author_select
   end
 
   # GET /authors/1/edit
@@ -22,6 +23,7 @@ class AuthorsController < ApplicationController
   # POST /authors or /authors.json
   def create
     @author = Author.new(author_params)
+    
 
     respond_to do |format|
       if @author.save
@@ -57,6 +59,7 @@ class AuthorsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_author
       @author = Author.find(params[:id])

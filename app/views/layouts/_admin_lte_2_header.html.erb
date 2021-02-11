@@ -113,7 +113,15 @@
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs"><%= current_librarian.email%></span>
+            <span class="hidden-xs">
+
+            <%if librarian_signed_in?%>
+            <%= current_librarian.email%>
+            <%else%>
+            <% puts"" %>
+            <%end%>
+            
+            </span>
             <%= link_to destroy_librarian_session_path, class: "fa fa-sign-out", :method => 'delete' do%>
               loggout
               <%end%>
@@ -123,7 +131,11 @@
             <li class="user-header">
               <img src="/assets/user2-160x160.jpg" class="img-circle" alt="User Image" />
               <p>
+              <%if librarian_signed_in?%>
               <%= current_librarian.email%>
+              <%else%>
+              <% puts"" %>
+              <%end%>
                 <small>Member since Nov. 2012</small>
               </p>
             </li>

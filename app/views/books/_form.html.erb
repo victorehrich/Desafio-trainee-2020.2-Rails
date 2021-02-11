@@ -23,12 +23,24 @@
 
   <div class="field">
     <%= form.label :author_id %>
-    <%= form.text_field :author_id %>
+    <%= collection_select( 
+    :book,
+    :author_id, 
+    @author_select, 
+    :id, 
+    :name, 
+    {:prompt => 'autor'} )%>
   </div>
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= collection_select( 
+    :book, 
+    :category_id, 
+    @category_select, 
+    :id, 
+    :name, 
+    {:prompt => 'Categorias'})%>
   </div>
 
   <div class="actions">

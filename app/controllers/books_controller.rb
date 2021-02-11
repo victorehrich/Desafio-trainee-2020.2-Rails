@@ -13,10 +13,14 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    author_options
+    category_options
   end
 
   # GET /books/1/edit
   def edit
+    author_options
+    category_options
   end
 
   # POST /books or /books.json
@@ -57,6 +61,12 @@ class BooksController < ApplicationController
   end
 
   private
+    def author_options
+      @author_select = Author.all
+    end
+    def category_options
+      @category_select = Category.all
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])

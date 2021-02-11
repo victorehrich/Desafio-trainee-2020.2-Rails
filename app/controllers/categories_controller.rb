@@ -17,11 +17,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    
   end
 
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    
 
     respond_to do |format|
       if @category.save
@@ -56,7 +58,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+      
+  
+
+
   private
+  def category_select
+    @category_selected = Category.all
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
@@ -66,4 +76,5 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+
 end
