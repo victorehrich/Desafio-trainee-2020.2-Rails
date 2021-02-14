@@ -13,18 +13,31 @@
 
   <div class="field">
     <%= form.label :book_id %>
-    <%= form.text_field :book_id %>
-  </div>
+    <%= collection_select( 
+      :reservation,
+      :book_id, 
+      @book_select, 
+      :id, 
+      :name, 
+      {:prompt => 'livro'} )%>
+    </div>
+
 
   <div class="field">
     <%= form.label :client_id %>
-    <%= form.text_field :client_id %>
-  </div>
+    <%= collection_select( 
+      :reservation,
+      :client_id, 
+      @client_select, 
+      :id, 
+      :name, 
+      {:prompt => 'cliente'} )%>
+    </div>
 
-  <div class="field">
-    <%= form.label :librarian_id %>
-    <%= form.text_field :librarian_id %>
-  </div>
+    <!-- <div class="field">
+     <%= form.label :librarian_id %>
+     <%= form.text_field :librarian_id%>
+   </div> -->
 
   <div class="actions">
     <%= form.submit %>

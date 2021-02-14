@@ -13,15 +13,20 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    book_options
+    client_options
   end
 
   # GET /reservations/1/edit
   def edit
+    book_options
+    client_options
   end
 
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.librarian_id = current_librarian.id
 
     respond_to do |format|
       if @reservation.save
@@ -55,11 +60,18 @@ class ReservationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def book_options
+    @book_select = Book.all
+  end
+  def client_options
+    @client_select = Client.all
+  end
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.

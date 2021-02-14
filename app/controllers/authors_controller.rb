@@ -13,7 +13,6 @@ class AuthorsController < ApplicationController
   # GET /authors/new
   def new
     @author = Author.new
-    author_select
   end
 
   # GET /authors/1/edit

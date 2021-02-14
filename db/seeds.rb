@@ -10,6 +10,8 @@
         Librarian.create!([{:email => 'admin@admin.com', :password => '123456', :password_confirmation => '123456'},
                             {:email => 'admin2@admin.com', :password => '123456', :password_confirmation => '123456'}
                         ])
+    puts "Complete"
+    
     puts "Gerando os Clientes (Clients)..."
     10.times do |i|
       Client.create!(
@@ -34,4 +36,4 @@
     end
     puts "Complete"
 
-puts "Complete"
+
