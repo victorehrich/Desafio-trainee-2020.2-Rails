@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
         format.html { redirect_to @reservation, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to  new_reservation_path, alert: "LIVROS INSUFICIENTES PARA A RESERVA" }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
@@ -71,7 +71,6 @@ class ReservationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
-
     end
 
     # Only allow a list of trusted parameters through.
