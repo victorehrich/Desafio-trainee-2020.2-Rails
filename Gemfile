@@ -70,3 +70,5 @@ gem 'devise'
 gem 'devise-i18n'
 
 gem 'faker', '~> 2.15', '>= 2.15.1'
+
+gem 'ransack'

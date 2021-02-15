@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_or_author_name_or_category_name_cont,"Busque por nome, categoria ou autor" %>
+  <%= f.search_field :name_or_author_name_or_category_name_cont %>
+  <%= f.submit %>
+<%end%>
+
 <h1>Books</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Stock</th>
-      <th>Author</th>
-      <th>Category</th>
+      <th style="padding-right:5px"><%= sort_link(@q, :name) %></th>
+      <th style="padding-right:5px"><%= sort_link(@q, :stock) %></th>
+      <th style="padding-right:5px"><%= sort_link(@q, :author_name) %></th>
+      <th style="padding-right:5px"><%= sort_link(@q, :category_name) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +22,10 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= book.name %></td>
-        <td><%= book.stock %></td>
-        <td><%= book.author.name %></td>
-        <td><%= book.category.name %></td>
+        <td style="padding-right:5px"><%= book.name %></td>
+        <td style="text-align:center"><%= book.stock %></td>
+        <td style="padding-right:5px"><%= book.author.name %></td>
+        <td style="padding-right:5px"><%= book.category.name %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
