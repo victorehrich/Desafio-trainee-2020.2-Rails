@@ -12,16 +12,17 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @reservations.each do |reservation| %>
     
       <tr>
-        <td><%= reservation.book.name %></td>
-        <td><%= reservation.client.name %></td>
-        <td><%= reservation.librarian.email %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding:5px"><%= reservation.book.name %></td>
+        <td style="padding:5px"><%= reservation.client.name %></td>
+        <td style="padding:5px"><%= reservation.librarian.email %></td>
+        <td style="padding:5px"><%= link_to 'Show', reservation %></td>
+        <td style="padding:5px"><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td style="padding:5px"><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
