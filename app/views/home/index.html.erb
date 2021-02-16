@@ -1,9 +1,49 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-    
-        <div><%= link_to "Clientes",clients_path%></div>
-        <div><%= link_to "Livros",books_path%></div>
-        <div><%= link_to "Categorias",categories_path%></div>
-        <div><%= link_to "Autores",authors_path%></div>
-        <div><%= link_to "Reservas",reservations_path%></div>
+<h1>Home</h1>
+<p>Bem vindo a nossa biblioteca</p>
+
+<ul style="display:inline-flex">
+        <li class="margin_img">
+        <%=link_to clients_path do%>
+                <div>
+                        <img src="../../assets/images/reception-2507752_1280.jpg" width="200px" height="180px">
+                        <p class="text_img">Clientes</p>
+                </div>
+        <%end%>
+        </li>
+                <li class="margin_img">
+        <%=link_to books_path do%>
+                <div>
+                        <img src="../../assets/images/books-1617327_1280.jpg" width="200px" height="180px">
+                        <p class="text_img" style="margin-left:5%">Livros</p>
+                </div>
+        <%end%>
+        </li>        <li class="margin_img">
+        <%=link_to categories_path do%>
+                <div>
+                        <img src="assets/reception-2507752_1280.jpg" width="200px" height="180px">
+                        <p class="text_img">Categorias</p>
+                </div>
+        <%end%>
+        </li>
+</ul>
+<br>
+<ul style="display:inline-flex">
+    <li class="margin_img2">
+        <%=link_to authors_path do%>
+                <div style="margin-left:45%">
+                        <img src="assets/reception-2507752_1280.jpg" width="200px" height="180px">
+                        <p class="text_img" style="margin-left:30%">Autores</p>
+                </div>
+        <%end%>
+    </li>        
+        <li class="margin_img2">
+        <%=link_to reservations_path do%>
+                <div>
+                        <img src="assets/reception-2507752_1280.jpg" width="200px" height="180px">
+                        <p class="text_img">Reservas</p>
+                </div>
+        <%end%>
+        </li>
+</ul>
+
     
