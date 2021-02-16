@@ -36,4 +36,17 @@
     end
     puts "Complete"
 
+    puts "Gerando os Livros (Books)..."
+    @book_author = Author.all
+    @book_category = Category.all
+    10.times do |k|
+      Book.create!(
+        name: Faker::Book.title,
+        stock: rand(7),
+        author: @book_author.sample,
+        category: @book_category.sample
+      )
+    end
+    puts "Complete"
+
 
